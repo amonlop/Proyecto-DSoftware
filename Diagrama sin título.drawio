@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" modified="2024-05-06T13:32:07.031Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="ejms0n1NE1428NU2QdOp" version="24.3.1" type="google">
+  <diagram name="Página-1" id="DCHRMvszVgywLbSczWx1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-1" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="-325" width="510" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.556;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=block;startFill=1;" edge="1" parent="1" source="ZwG2BNPKWMxDcedbQ5RE-3" target="ZwG2BNPKWMxDcedbQ5RE-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-3" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Aplicación móvil&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;b style=&quot;&quot;&gt;[Flutter&lt;/b&gt;&lt;b style=&quot;&quot;&gt;]&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 8px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Calcula la probabilidad de éxito, muestra datos ambientales, y de los cardúmenes.&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="385" y="-310" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-6" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;Aplicación API&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;[Python y Django]&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 8px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Accede a la información satelital externa y a la base de datos interna&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="660" y="-310" width="130" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-13" value="&lt;p style=&quot;line-height: 70%;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Realiza llamadas a la API&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 0%;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;[HTTP/JSON]&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-280" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-15" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="660" y="-170" width="130" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-16" value="&lt;h1 style=&quot;text-align: center; margin-top: 0px; font-size: 15px;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot; color=&quot;#ffffff&quot;&gt;Base de Datos&lt;/font&gt;&lt;/h1&gt;&lt;div style=&quot;text-align: center; line-height: 90%;&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;span style=&quot;font-size: 15px;&quot;&gt;[MongoDB]&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#ffffff&quot;&gt;Guarda información de viajes, incluyendo datos ambientales, coordenadas, etc.&lt;/font&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;glass=0;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="665" y="-170" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=block;startFill=1;" edge="1" parent="1" source="ZwG2BNPKWMxDcedbQ5RE-6" target="ZwG2BNPKWMxDcedbQ5RE-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-19" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Lee y escribe&lt;/font&gt;&lt;div style=&quot;line-height: 120%; font-size: 11px;&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;a l&lt;span style=&quot;background-color: initial;&quot;&gt;a BD&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 120%; font-size: 11px;&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;[HTTP]&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="730" y="-210" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.476;entryY=0.024;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ZwG2BNPKWMxDcedbQ5RE-22" target="ZwG2BNPKWMxDcedbQ5RE-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="722" y="-370" />
+              <mxPoint x="722" y="-370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-22" value="&lt;h1 style=&quot;text-align: center; margin-top: 0px; font-size: 13px;&quot;&gt;Sistema de imagenes de la empresa satelital&lt;/h1&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Provee información satelital cada hora.&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="657.5" y="-500" width="132.5" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-24" value="&lt;p style=&quot;line-height: 70%;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Entrega la informacion&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="720" y="-370" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-29" value="&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;span style=&quot;font-size: 8px; background-color: initial;&quot;&gt;Consulta la probabilidad&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;span style=&quot;font-size: 8px; background-color: initial;&quot;&gt;de exito de un viaje&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="-275" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-34" value="&lt;h1 style=&quot;margin-top: 0px; line-height: 80%; font-size: 16px;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Aplicacion web&lt;/font&gt;&lt;/h1&gt;&lt;div style=&quot;line-height: 110%;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;[Python y Django/HTML y CSS]&lt;/font&gt;&lt;/div&gt;&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Accede y modifica los parametros en la BD&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=1;align=center;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="380" y="-167.5" width="150" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-36" value="Maneja parametros&lt;div&gt;[HTTP]&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="-70" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="ZwG2BNPKWMxDcedbQ5RE-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="-20" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="210" y="-19" />
+              <mxPoint x="296" y="-19" />
+              <mxPoint x="296" y="-120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZwG2BNPKWMxDcedbQ5RE-44" target="ZwG2BNPKWMxDcedbQ5RE-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="-260" />
+              <mxPoint x="250" y="-260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Capitán de la embarcación" c4Type="Person" c4Description="Persona que dirige embarcación." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="ZwG2BNPKWMxDcedbQ5RE-44">
+          <mxCell style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;points=[[0.5,0,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0]];resizable=0;rotation=0;" vertex="1" parent="1">
+            <mxGeometry x="10" y="-390" width="200" height="180" relative="1" as="geometry">
+              <mxPoint y="-370" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Admin" c4Type="Person" c4Description="" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="ZwG2BNPKWMxDcedbQ5RE-46">
+          <mxCell style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;points=[[0.5,0,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0]];resizable=0;" vertex="1" parent="1">
+            <mxGeometry x="10" y="-145" width="200" height="180" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="OIx1qBEs6XJ__SEf0fwc-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=block;startFill=1;exitX=-0.008;exitY=0.445;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="ZwG2BNPKWMxDcedbQ5RE-15" target="ZwG2BNPKWMxDcedbQ5RE-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="-120" as="sourcePoint" />
+            <mxPoint x="540" y="-90" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZwG2BNPKWMxDcedbQ5RE-41" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Lee y escribe&lt;/font&gt;&lt;div style=&quot;line-height: 120%; font-size: 11px;&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;a l&lt;span style=&quot;background-color: initial;&quot;&gt;a BD&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 120%; font-size: 11px;&quot;&gt;[JSON/HTTP]&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-145" width="80" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
