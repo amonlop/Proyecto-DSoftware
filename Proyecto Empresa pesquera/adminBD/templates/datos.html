@@ -1,0 +1,67 @@
+{% extends 'base/links.html' %}
+
+{% block content %}
+<section>
+    <ul>
+        <li style="list-style-type: circle;">Cardumenes</li>
+        <table border="2px solid black">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cardumen in cardumenes %}
+                <tr>
+                    <td>{{cardumen.nombre}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <li style="list-style-type: circle;">Zonas</li>
+        <table border="2px solid black">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Coordenada X</th>
+                    <th>Coordenada Y</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for zona in zonas %}
+                <tr>
+                    <td>{{zona.pk}}</td>
+                    <td>{{zona.coordenadaX}}</td>
+                    <td>{{zona.coordenadaY}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <li style="list-style-type: circle;">Habitats</li>
+        <table border="2px solid black">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cardumen</th>
+                    <th>Coordenada X</th>
+                    <th>Coordenada Y</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for habitat in habitats %}
+                <tr>
+                    <td>{{habitat.pk}}</td>
+                    <td>{{habitat.cardumen.nombre}}</td>
+                    <td>{{habitat.zona.coordenadaX}}</td>
+                    <td>{{habitat.zona.coordenadaY}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </ul>
+</section>
+{% endblock %}

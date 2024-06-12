@@ -1,0 +1,56 @@
+{% extends 'base/links.html' %}
+
+{% block content %}
+
+<h1>Condiciones ambientales del lugar</h1>
+
+
+<table border="2px black">
+    <thead>
+        <tr>
+            <th>Coordenada X</th>
+            <th>Coordenada Y</th>
+            <th>Temperatura °C</th>
+            <th>Profundidad</th>
+            <th>Clima</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{coordenadaX}}</td>
+            <td>{{coordenadaY}}</td>
+            <td>25 °C</td>
+            <td>32 mts</td>
+            <td>Lluvioso</td>
+        </tr>
+    </tbody>
+</table><br>
+
+
+<table border="2px black">
+    <thead>
+        <tr>
+            <th>Especie</th>
+            <th>Probabilidad aparicion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Salmón</td>
+            <td>80%</td>
+        </tr>
+        <tr>
+            <td>Mojarra</td>
+            <td>25%</td>
+        </tr>
+        <tr>
+            <td>Tilapia</td>
+            <td>56.5%</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2>Probabilidad de exito viaje</h2>
+<p>En base a las condiciones ambiantales anteriormente mencionadas, el viaje tiene una probabilidad de exito del 60%</p>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base/links.html' %}
+
+{% block content %}
+<h1>Agregar nuevos cardumenes</h1>
+<form method="post">
+    {% csrf_token %}
+    {{cardumenForm}}
+    <button>Enviar</button>
+</form>
+{% endblock %}

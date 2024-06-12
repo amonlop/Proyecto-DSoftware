@@ -1,0 +1,15 @@
+{% extends 'base/links.html' %}
+
+{% block content %}
+
+<h1>Viaje sugerido</h1>
+<p>
+    Para obtener las estadísticas sobre la aparición de cardumenes en las zonas cercanas ingrese las coordenadas que le gustaría investigar.<br>
+</p>
+<form method="post">
+    {%csrf_token%}
+    {{lugarForm.as_p}}
+    <button>Enviar</button>
+</form>
+
+{% endblock %}
