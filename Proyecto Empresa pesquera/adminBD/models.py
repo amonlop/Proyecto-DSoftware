@@ -18,19 +18,3 @@ class zona(models.Model):
         constraints = [
             UniqueConstraint(fields=['coordenadaX', 'coordenadaY'], name='zona_key')
         ]
-
-    
-
-class habitat(models.Model):
-    cardumen = models.ForeignKey(cardumen, on_delete= models.CASCADE)
-    zona = models.ForeignKey(zona, on_delete=models.CASCADE)
-
-    def __str__(self):
-            return 'Habitat '+self.cardumen.nombre
-    
-    class Meta:
-        constraints = [
-            UniqueConstraint(fields=['cardumen', 'zona'], name='habitat_key')
-        ]
-        
-    

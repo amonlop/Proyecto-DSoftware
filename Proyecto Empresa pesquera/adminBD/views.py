@@ -1,5 +1,5 @@
 from django.http import HttpResponse, JsonResponse
-from .models import cardumen, zona, habitat
+from .models import cardumen, zona
 from django.shortcuts import  render, redirect
 from .forms import crearCardumen, ingresarCoordenadas
 
@@ -10,9 +10,8 @@ def index(request):
 def database(request):
     cardumenes = cardumen.objects.all()
     zonas = zona.objects.all()
-    habitats = habitat.objects.all()
     return render(request, 'datos.html', {
-        'cardumenes':cardumenes, 'zonas':zonas, 'habitats':habitats
+        'cardumenes':cardumenes, 'zonas':zonas
     })
 
 def crear_cardumen(request):
@@ -29,12 +28,14 @@ def obtener_viaje(request):
         return render(request, 'obtener_viaje.html',{
         'lugarForm' : ingresarCoordenadas
         })
-    else:
-        coordenadaX = request.POST['coordenadaX']
-        coordenadaY = request.POST['coordenadaY']
-        return redirect('estadisticas_viaje/'+coordenadaX+'/'+coordenadaY)
+    elif request.method == 'POST':
+        request.session['coordenadaX'] = request.POST.get('coordenadaX')
+        request.session['coordenadaY'] = request.POST.get('coordenadaY')
+        return redirect('estadisticas_viaje')
 
-def estadisticas_viaje(request, coordenadaX, coordenadaY):
+def estadisticas_viaje(request):
+    coordenadaX = request.session.get('coordenadaX')
+    coordenadaY = request.session.get('coordenadaY')
     return render(request, 'estadisticas_viaje.html',{
         'coordenadaX' : coordenadaX,
         'coordenadaY' : coordenadaY
