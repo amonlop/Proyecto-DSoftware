@@ -2,55 +2,66 @@
 
 {% block content %}
 
-<h1>Condiciones ambientales del lugar</h1>
 
 
-<table border="2px black">
-    <thead>
-        <tr>
-            <th>Coordenada X</th>
-            <th>Coordenada Y</th>
-            <th>Temperatura °C</th>
-            <th>Profundidad</th>
-            <th>Clima</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{coordenadaX}}</td>
-            <td>{{coordenadaY}}</td>
-            <td>25 °C</td>
-            <td>32 mts</td>
-            <td>Lluvioso</td>
-        </tr>
-    </tbody>
-</table><br>
+<div class="m-2 p-2">
+    <h2 class="text-center">Condiciones ambientales del lugar</h2>
+    <div class="m-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Coordenada X</th>
+                    <th scope="col">Coordenada Y</th>
+                    <th scope="col">Temperatura °C</th>
+                    <th scope="col">Profundidad</th>
+                    <th scope="col">Clima</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{coordenadaX}}</td>
+                    <td>{{coordenadaY}}</td>
+                    <td>25 °C</td>
+                    <td>32 mts</td>
+                    <td>Lluvioso</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
-<table border="2px black">
-    <thead>
-        <tr>
-            <th>Especie</th>
-            <th>Probabilidad aparicion</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Salmón</td>
-            <td>80%</td>
-        </tr>
-        <tr>
-            <td>Mojarra</td>
-            <td>25%</td>
-        </tr>
-        <tr>
-            <td>Tilapia</td>
-            <td>56.5%</td>
-        </tr>
-    </tbody>
-</table>
+<div class="m-2 p-2">
+    <h3 class="text-center">Especies encontradas</h3>
+    <div class="m-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Especie</th>
+                    <th scope="col">Probabilidad de aparición</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Salmón</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>Mojarra</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Tilapia</td>
+                    <td>56.5%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<div class="m-3 p-2 mb-5 ">
+    <h3>Probabilidad de éxito del viaje</h3>
+    <p>En base a las condiciones ambientales anteriormente mencionadas, el viaje tiene una probabilidad de éxito del 60%</p>
+</div>
 
-<h2>Probabilidad de exito viaje</h2>
-<p>En base a las condiciones ambiantales anteriormente mencionadas, el viaje tiene una probabilidad de exito del 60%</p>
 {% endblock %}

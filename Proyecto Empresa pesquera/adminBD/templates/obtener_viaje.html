@@ -2,14 +2,16 @@
 
 {% block content %}
 
-<h1>Viaje sugerido</h1>
-<p>
-    Para obtener las estadísticas sobre la aparición de cardumenes en las zonas cercanas ingrese las coordenadas que le gustaría investigar.<br>
-</p>
-<form method="post">
-    {%csrf_token%}
-    {{lugarForm.as_p}}
-    <button>Enviar</button>
-</form>
+
+<div class="m-2 p-2">
+    <h1>Viaje sugerido</h1>
+    <p>Para obtener las estadísticas sobre la aparición de cardúmenes en las zonas cercanas, ingrese las coordenadas que le gustaría investigar</p>
+    <form method="post" class="">
+        {%csrf_token%}
+        {{lugarForm.as_p}}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
 
 {% endblock %}

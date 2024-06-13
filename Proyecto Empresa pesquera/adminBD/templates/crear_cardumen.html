@@ -1,10 +1,16 @@
 {% extends 'base/links.html' %}
 
 {% block content %}
-<h1>Agregar nuevos cardumenes</h1>
-<form method="post">
-    {% csrf_token %}
-    {{cardumenForm}}
-    <button>Enviar</button>
-</form>
+
+<div class="p-2 m-2">
+    <h2>Agregar cardúmenes</h2>
+    <div class="p-2 m-2">
+        <form method="post">
+            {% csrf_token %}
+            {{cardumenForm}}
+            <button type="button" class="btn btn-primary mt-2">Enviar</button>
+        </form>
+    </div>
+</div>
+
 {% endblock %}
