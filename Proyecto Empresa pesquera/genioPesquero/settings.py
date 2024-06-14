@@ -74,7 +74,9 @@ WSGI_APPLICATION = 'genioPesquero.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
 DATABASES = {
+<<<<<<< Updated upstream
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #     'NAME': 'EmpresaPesquera',
@@ -83,6 +85,12 @@ DATABASES = {
     #     'HOST': 'localhost',
     #     'PORT': '5432'
     # }
+=======
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR /'db.sqlite3',
+    }
+>>>>>>> Stashed changes
 }
 
 

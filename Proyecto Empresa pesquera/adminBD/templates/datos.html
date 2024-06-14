@@ -41,27 +41,6 @@
         </table>
 
         <br>
-        <li style="list-style-type: circle;">Habitats</li>
-        <table border="2px solid black">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Cardumen</th>
-                    <th>Coordenada X</th>
-                    <th>Coordenada Y</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for habitat in habitats %}
-                <tr>
-                    <td>{{habitat.pk}}</td>
-                    <td>{{habitat.cardumen.nombre}}</td>
-                    <td>{{habitat.zona.coordenadaX}}</td>
-                    <td>{{habitat.zona.coordenadaY}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
     </ul>
 </section>
 {% endblock %}
