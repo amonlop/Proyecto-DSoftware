@@ -14,16 +14,14 @@
                     <th scope="col">Coordenada Y</th>
                     <th scope="col">Temperatura °C</th>
                     <th scope="col">Profundidad</th>
-                    <th scope="col">Clima</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{coordenadaX}}</td>
                     <td>{{coordenadaY}}</td>
-                    <td>25 °C</td>
-                    <td>32 mts</td>
-                    <td>Lluvioso</td>
+                    <td>{{temperatura}}</td>
+                    <td>{{profundidad}}</td>
                 </tr>
             </tbody>
         </table>
@@ -42,18 +40,12 @@
                 </tr>
             </thead>
             <tbody>
+                {% for probabilidadCardumen in probabilidadades %}
                 <tr>
-                    <td>Salmón</td>
-                    <td>80%</td>
+                    <td>{{probabilidadCardumen.especie}}</td>
+                    <td>{{probabilidadCardumen.probabilidad_aparicion}}</td>
                 </tr>
-                <tr>
-                    <td>Mojarra</td>
-                    <td>25%</td>
-                </tr>
-                <tr>
-                    <td>Tilapia</td>
-                    <td>56.5%</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
