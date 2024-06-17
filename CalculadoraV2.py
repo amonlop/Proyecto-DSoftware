@@ -75,7 +75,8 @@ class CalculadoraProbabilistica:
                 probabilidades.append(probabilidadCardumen(cardumen.nombre, probabilidad_aparicion))
         else:
             for cardumen in self.cardumenes:
-                probabilidades.append(probabilidadCardumen(cardumen.nombre, 0.0))
+                if cardumen.puede_habitar(zona):
+                    probabilidades.append(probabilidadCardumen(cardumen.nombre, 100))
 
         return probabilidades
 
