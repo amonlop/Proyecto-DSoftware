@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for probabilidadCardumen in probabilidadades %}
+                {% for probabilidadCardumen in prob_cardumenes %}
                 <tr>
                     <td>{{probabilidadCardumen.especie}}</td>
                     <td>{{probabilidadCardumen.probabilidad_aparicion}}</td>
@@ -53,7 +53,7 @@
 
 <div class="m-3 p-2 mb-5 ">
     <h3>Probabilidad de éxito del viaje</h3>
-    <p>En base a las condiciones ambientales anteriormente mencionadas, el viaje tiene una probabilidad de éxito del 60%</p>
+    <p>En base a las condiciones ambientales anteriormente mencionadas, el viaje tiene una probabilidad de éxito del {{prob_exito}}%</p>
 </div>
 
 {% endblock %}
