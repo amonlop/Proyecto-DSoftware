@@ -37,13 +37,19 @@ calculadora = CalculadoraProbabilistica(cardumenes, viajes_historicos)
 def probabilidad_exito():
     data = request.json
     zona = Zona(data['cord_x'], data['cord_y'], data['profundidad'], data['temperatura'])
+    cardumen = calculadora.pCardumen(zona)
     probabilidad = calculadora.pExito(zona)
+
+    cardumen_list = [{"especie": c.especie, "probabilidad_aparicion": c.probabilidad_aparicion} for c in cardumen]
+
+
     return jsonify({
         'cord_x': zona.cord_x,
         'cord_y': zona.cord_y,
         'profundidad': zona.profundidad,
         'temperatura': zona.temperatura,
-        'probabilidad_exito': probabilidad
+        'probabilidad_exito': probabilidad,
+        'cardumenes': cardumen_list
     })
 
 if __name__ == '__main__':
