@@ -8,8 +8,10 @@ class cardumen(models.Model):
         return self.nombre
 
 class zona(models.Model):
-    coordenadaX = models.IntegerField()
-    coordenadaY = models.IntegerField()
+    coordenadaX_1 = models.IntegerField()
+    coordenadaX_2 = models.IntegerField()
+    coordenadaY_1 = models.IntegerField()
+    coordenadaY_2 = models.IntegerField()
 
     def __str__(self) -> str:
             return 'Zona '+ str(self.pk)
