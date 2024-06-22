@@ -9,24 +9,54 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 #Modelos base de datos
-class Cardumen(db.Model):
+class CardumenDB(db.Model):
     __tablename__ = 'cardumen'
-    nombre = db.Column(db.String(200), primary_key=True)
+    especie = db.Column(db.String(200), primary_key=True)
+    profundidad_min = db.Column(db.Integer, nullable=False)
+    profundidad_max = db.Column(db.Integer, nullable=False)
+    temp_min = db.Column(db.Integer, nullable=False)
+    temp_max = db.Column(db.Integer, nullable=False)
+    x_min = db.Column(db.Integer, nullable=False)
+    x_max = db.Column(db.Integer, nullable=False)
+    y_min = db.Column(db.Integer, nullable=False)
+    y_max = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f'<Cardumen {self.nombre}>'
 
-class Zona(db.Model):
+class ZonaDB(db.Model):
     __tablename__ = 'zona'
     id = db.Column(db.Integer, primary_key=True)
-    coordenadaX = db.Column(db.Integer, nullable=False)
-    coordenadaY = db.Column(db.Integer, nullable=False)
-
-    __table_args__ = (db.UniqueConstraint('coordenadaX', 'coordenadaY', name='zona_key'),)
+    x_min = db.Column(db.Integer, nullable=False)
+    x_max = db.Column(db.Integer, nullable=False)
+    y_min = db.Column(db.Integer, nullable=False)
+    y_max = db.Column(db.Integer, nullable=False)
+    profundidad = db.Column(db.Integer, nullable=False)
+    temperatura = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f'<Zona {self.id}>'
 
+class ViajeDB(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    id_zona = db.Column(db.Integer, db.ForeignKey('zona.id'), nullable=False)
+    fecha_salida = db.Column(db.Date, nullable=False)
+    fecha_llegada = db.Column(db.Date, nullable=False)
+    es_viaje_exitoso = db.Column(db.Boolean, nullable=False)
+    zona = db.relationship('Zona', backref=db.backref('viajes', lazy=True))
+
+    def __repr__(self):
+        return f"<Viaje {self.id}>"
+
+class ViajeCardumenDB(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    id_viaje = db.Column(db.Integer, db.ForeignKey('viaje.id'), nullable=False)
+    id_cardumen = db.Column(db.Integer, db.ForeignKey('cardumen.id'), nullable=False)
+    viaje = db.relationship('Viaje', backref=db.backref('viaje_cardumen', lazy=True))
+    cardumen = db.relationship('Cardumen', backref=db.backref('viaje_cardumen', lazy=True))
+
+    def __repr__(self):
+        return f"<Viaje {self.viaje_id} | Cardumen {self.cardumen_id}>"
 
 # Carga de datos iniciales
 cardumenes = Cardumen.cargar_cardumenes()

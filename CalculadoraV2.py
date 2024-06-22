@@ -1,54 +1,93 @@
+from ApiV2 import db
+from ApiV2 import CardumenDB, ZonaDB, ViajeDB, ViajeCardumenDB
+
+def calcular_porcentaje_interseccion(zona1, zona2):
+    xmin1 = zona1.x_min, xmax1 = zona1.x_max, ymin1 = zona1.y_min, ymax1 = zona1.y_max
+    xmin2 = zona2.x_min, xmax2 = zona2.x_max, ymin2 = zona2.y_min, ymax2 = zona2.y_max
+
+    interseccion_xmin = max(xmin1, xmin2)
+    interseccion_xmax = min(xmax1, xmax2)
+    interseccion_ymin = max(ymin1, ymin2)
+    interseccion_ymax = min(ymax1, ymax2)
+
+    if interseccion_xmax < interseccion_xmin or interseccion_ymax < interseccion_ymin:
+        return 0
+
+    área_zona1 = (xmax1 - xmin1) * (ymax1 - ymin1)
+    área_intersección = (interseccion_xmax - interseccion_xmin) * (interseccion_ymax - interseccion_ymin)
+
+    porcentaje = (área_intersección / área_zona1) * 100
+    return porcentaje
+
+class Zona:
+    def __init__(self, x_min, x_max, y_min, y_max, profundidad, temperatura):
+        self.x_min = x_min
+        self.x_max = x_max
+        self.y_min = y_min
+        self.y_max = y_max
+        self.profundidad = profundidad
+        self.temperatura = temperatura
+    
+
 class Cardumen:
-    def __init__(self, nombre, profundidad_min, profundidad_max, temp_min, temp_max, xmin, xmax, ymin, ymax):
-        self.nombre = nombre
+    def __init__(self, especie, profundidad_min, profundidad_max, temp_min, temp_max, x_min, x_max, y_min, y_max):
+        self.especie = especie
         self.profundidad_min = profundidad_min
         self.profundidad_max = profundidad_max
         self.temp_min = temp_min
         self.temp_max = temp_max
-        self.xmin = xmin
-        self.xmax = xmax
-        self.ymin = ymin
-        self.ymax = ymax
+        self.x_min = x_min
+        self.x_max = x_max
+        self.y_min = y_min
+        self.y_max = y_max
 
     @staticmethod
-    def cargar_cardumenes():
+    def obtenerCardumenes():
         cardumenes = list()
-        cardumenes.append(Cardumen("Jurel", 10, 50, 10, 20, 5, 15, 35, 45))
-        cardumenes.append(Cardumen("Corvina", 20, 60, 15, 25, 20, 30, 50, 60))
-        cardumenes.append(Cardumen("Merluza", 30, 70, 20, 30, 35, 45, 65, 75))
-        cardumenes.append(Cardumen("Congrio", 40, 80, 25, 35, 50, 60, 80, 90))
-        cardumenes.append(Cardumen("Salmón", 50, 90, 30, 40, 65, 75, 15, 25))
-        cardumenes.append(Cardumen("Reineta", 60, 100, 35, 45, 80, 90, 30, 40))
+        cardumenesDB = db.session.query(CardumenDB).all()
+        for cardumen in cardumenesDB:
+            cardumenes.append(Cardumen(cardumen.especie, cardumen.profundidad_min, cardumen.profundidad_max, cardumen.temp_min, cardumen.temp_max, cardumen.x_min, cardumen.x_max, cardumen.y_min, cardumen.y_max))
         return cardumenes
 
     def puede_habitar(self, zona):
         return (self.profundidad_min <= zona.profundidad <= self.profundidad_max and
                 self.temp_min <= zona.temperatura <= self.temp_max and
-                self.xmin <= zona.cord_x <= self.xmax and
-                self.ymin <= zona.cord_y <= self.ymax)
+                ((self.x_min <= zona.x_min <= self.x_max and
+                self.y_min <= zona.y_min <= self.y_max) or (self.x_min <= zona.x_min <= self.x_max and
+                self.y_min <= zona.y_max <= self.y_max) or (self.x_min <= zona.x_max <= self.x_max and
+                self.y_min <= zona.y_min <= self.y_max) or (self.x_min <= zona.x_max <= self.x_max and
+                self.y_min <= zona.y_max <= self.y_max)))
+    
+class Viaje:
+    def __init__(self, zona, fecha_salida, fecha_llegada, cardumenes_pescados, es_exitoso):
+        self.zona = zona
+        self.fecha_salida = fecha_salida
+        self.fecha_llegada = fecha_llegada
+        self.es_exitoso = es_exitoso
+        self.cardumenes_pescados = cardumenes_pescados
+        
+
+    def duracion_viaje(self):
+        return self.fecha_llegada - self.fecha_salida
+    
+    @staticmethod
+    def obtenerViajes(zona):
+        viajes = list()
+        viajesDB = db.session.query(ViajeDB).all()
+        #Filtrar los viajes que cumplan calcular_porcentaje_interseccion(viaje.zona, zona) > 30
+        for viaje in viajesDB:
+            cardumenes_pescados = db.session.query(ViajeCardumenDB).filter(ViajeCardumenDB.id_viaje == viaje.id).all()
+            cardumenes = list()
+            for cardumen in cardumenes_pescados:
+                cardumenes.append(cardumen.id_cardumen)
+            viajes.append(Viaje(zona, viaje.fecha_salida, viaje.fecha_llegada, cardumenes, viaje.es_viaje_exitoso))
+        return viajes
 
 class probabilidadCardumen:
     def __init__(self, especie, probabilidad_aparicion):
         self.especie = especie
         self.probabilidad_aparicion = probabilidad_aparicion
 
-class Viaje:
-    def __init__(self, fecha_salida, fecha_llegada, cord_x, cord_y, profundidad, temperatura, cardumenes_pescados, es_exitoso):
-        self.fecha_salida = fecha_salida
-        self.fecha_llegada = fecha_llegada
-        self.es_exitoso = es_exitoso
-        self.zona = Zona(cord_x, cord_y, profundidad, temperatura)
-        self.cardumenes_pescados = cardumenes_pescados
-
-    def duracion_viaje(self):
-        return self.fecha_llegada - self.fecha_salida
-
-class Zona:
-    def __init__(self, cord_x, cord_y, profundidad, temperatura):
-        self.cord_x = cord_x
-        self.cord_y = cord_y
-        self.profundidad = profundidad
-        self.temperatura = temperatura
 
 class CalculadoraProbabilistica:
     def __init__(self, cardumenes, viajes_historicos):

@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Create your models here.
 class Cardumen(models.Model):
-    nombre = models.CharField(primary_key=True, max_length=200)
+    especie = models.CharField(primary_key=True, max_length=200)
     profundidad_min = models.IntegerField()
     profundidad_max = models.IntegerField()
     temp_min = models.IntegerField()
@@ -17,31 +17,32 @@ class Cardumen(models.Model):
     def __str__(self):
         return self.nombre
 
+
+
 class Zona(models.Model):
-    coordenadaX_1 = models.IntegerField()
-    coordenadaX_2 = models.IntegerField()
-    coordenadaY_1 = models.IntegerField()
-    coordenadaY_2 = models.IntegerField()
+    x_min = models.IntegerField()
+    x_max = models.IntegerField()
+    y_min = models.IntegerField()
+    y_max = models.IntegerField()
+    profundidad = models.IntegerField()
+    temperatura = models.IntegerField()
 
     def __str__(self) -> str:
             return 'Zona '+ str(self.pk)
-    
-    class Meta:
-        constraints = [
-            UniqueConstraint(fields=['coordenadaX', 'coordenadaY'], name='zona_key')
-        ]
 
 
 class Viaje(models.Model):
-    nombre_viaje = models.CharField(max_length=200)
+    zona = models.ForeignKey(Zona, on_delete=models.CASCADE)
     fecha_salida = models.DateField()
     fecha_llegada = models.DateField()
-    es_viaje_exitoso = models.IntegerField()
+    es_viaje_exitoso = models.BooleanField()
 
     def __str__(self) -> str:
          return "Viaje" + str(self.pk)
 
+class viajeCardumen(models.Model):
+    viaje = models.ForeignKey(Viaje, on_delete=models.CASCADE)
+    cardumen = models.ForeignKey(Cardumen, on_delete=models.CASCADE)
 
-    def duracion_viaje():
-        return (self.fecha_llegada - self.fecha_salida).days
-
+    def __str__(self) -> str:
+        return "Viaje " + str(self.viaje.pk) + " | Cardumen " + str(self.cardumen.especie)
