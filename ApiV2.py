@@ -1,7 +1,32 @@
 from flask import Flask, jsonify, request
+from flask_sqlalchemy import SQLAlchemy
 from CalculadoraV2 import Cardumen, Zona, CalculadoraProbabilistica, Viaje
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite: ./Proyecto Empresa pesquera/db.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+#Modelos base de datos
+class Cardumen(db.Model):
+    __tablename__ = 'cardumen'
+    nombre = db.Column(db.String(200), primary_key=True)
+
+    def __repr__(self):
+        return f'<Cardumen {self.nombre}>'
+
+class Zona(db.Model):
+    __tablename__ = 'zona'
+    id = db.Column(db.Integer, primary_key=True)
+    coordenadaX = db.Column(db.Integer, nullable=False)
+    coordenadaY = db.Column(db.Integer, nullable=False)
+
+    __table_args__ = (db.UniqueConstraint('coordenadaX', 'coordenadaY', name='zona_key'),)
+
+    def __repr__(self):
+        return f'<Zona {self.id}>'
+
 
 # Carga de datos iniciales
 cardumenes = Cardumen.cargar_cardumenes()

@@ -9,16 +9,41 @@
 
 </head>
 <body class="m-1 p-1">
-    <header class="m-2 p-2 text-center">
+    <header class="m-4 p-2 text-center">
         <h1>Bienvenido al sistema de recomendación de pesca</h1>
     </header>
-    <section class="mx-2 px-2">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, consectetur porro soluta inventore est, ducimus deserunt corporis laboriosam iure delectus, obcaecati expedita natus eum quam exercitationem ut harum. Quaerat, deserunt.
-        </p>
-    </section>
-
     <div class="text-center m-2 p-2">
         <button class="btn btn-primary">Obtener recomendaciones de viajes</button>
+    </div>
+
+    <div class="m-3 p-3">
+        <h3>Viajes realizados anteriormente</h3>
+        <div class="m-2 mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Viaje</th>
+                        <th scope="col">Coordenada X1</th>
+                        <th scope="col">Coordenada X2</th>
+                        <th scope="col">Coordenada Y1</th>
+                        <th scope="col">Coordenada Y2</th>
+                        <th scope="col">Cardúmenes encontrados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for viaje in viajes %}
+                    <tr>
+                        <td>{{viaje.nombre}}</td>
+                        <td>{{viaje.coordenadaX1}}</td>
+                        <td>{{viaje.coordenadaX2}}</td>
+                        <td>{{viaje.coordenadaY1}}</td>
+                        <td>{{viaje.coordenadaY2}}</td>
+                        <td>{{viaje.es_viaje_exitoso}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

@@ -18,10 +18,10 @@ class Cardumen(models.Model):
         return self.nombre
 
 class Zona(models.Model):
-    coordenadaX = models.IntegerField()
-    coordenadaY = models.IntegerField()
-    profundidad = models.IntegerField()
-    temperatura = models.IntegerField()
+    coordenadaX_1 = models.IntegerField()
+    coordenadaX_2 = models.IntegerField()
+    coordenadaY_1 = models.IntegerField()
+    coordenadaY_2 = models.IntegerField()
 
     def __str__(self) -> str:
             return 'Zona '+ str(self.pk)
@@ -33,6 +33,7 @@ class Zona(models.Model):
 
 
 class Viaje(models.Model):
+    nombre_viaje = models.CharField(max_length=200)
     fecha_salida = models.DateField()
     fecha_llegada = models.DateField()
     es_viaje_exitoso = models.IntegerField()
@@ -44,12 +45,3 @@ class Viaje(models.Model):
     def duracion_viaje():
         return (self.fecha_llegada - self.fecha_salida).days
 
-
-class Embarcacion(models.Model):
-    nombre = models.CharField()
-    capacidad_tripulacion = models.IntegerField()
-    capacidad_bodega = models.IntegerField() #cuantos kls de mercadería pueden almacenar
-
-
-    def __str__(self) -> str:
-         return "Embarcación" + str(self.pk)
