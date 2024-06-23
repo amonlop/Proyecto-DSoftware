@@ -46,8 +46,8 @@ def estadisticas_viaje(request):
         'x_max': coordenadaX2,
         'y_min': coordenadaY1,
         'y_max': coordenadaY2,
-        'profundidad': 60,
-        'temperatura': 35
+        'profundidad': 10,
+        'temperatura': 15
     }
     apiData = requests.post('http://localhost:5000/probabilidad_exito_zona', json=zona)
     apiData = apiData.json()
@@ -59,7 +59,7 @@ def estadisticas_viaje(request):
         'y_max' : coordenadaY2,
         'profundidad' : apiData['profundidad'],
         'temperatura' : apiData['temperatura'],
-        'prob_cardumenes' : apiData['cardumenes'],
+        'prob_cardumenes' : apiData['probabilidad_cardumenes'],
         'prob_exito' : apiData['probabilidad_exito']
     })
     

@@ -13,7 +13,7 @@ class Cardumen(models.Model):
     y_max = models.IntegerField()
 
     def __str__(self):
-        return self.nombre
+        return self.especie
 
 
 
@@ -26,7 +26,7 @@ class Zona(models.Model):
     temperatura = models.IntegerField()
 
     def __str__(self) -> str:
-            return 'Zona '+ str(self.pk)
+            return 'Zona ' + str(self.x_min) + "\u2191 " + str(self.y_min) + "\u2191 " + str(self.profundidad) + "m " + str(self.temperatura) + "°C"
 
 
 class Viaje(models.Model):
@@ -36,7 +36,7 @@ class Viaje(models.Model):
     es_viaje_exitoso = models.BooleanField()
 
     def __str__(self) -> str:
-         return "Viaje" + str(self.pk)
+         return "Viaje " + str(self.pk) + " " + str(self.zona.x_min) + "\u2191 "+ str(self.zona.y_min) + "\u2191" + str(self.zona.profundidad) + "m " + str(self.zona.temperatura) + "°C"
 
 class ViajeCardumen(models.Model):
     viaje = models.ForeignKey(Viaje, on_delete=models.CASCADE)

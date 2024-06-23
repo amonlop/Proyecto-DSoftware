@@ -21,9 +21,9 @@ def probabilidad_exito_zona():
     data = request.json
     zona = Zona(data['x_min'], data['x_max'], data['y_min'], data['y_max'], data['profundidad'], data['temperatura'])
     cardumen = calculadora.pCardumen(zona)
-    probabilidad = calculadora.pExitoZona(zona)
+    probabilidad_exito = calculadora.pExitoZona(zona)
 
-    cardumen_list = [{"especie": c.especie, "probabilidad_aparicion": c.probabilidad_aparicion} for c in cardumen]
+    probabilidad_cardumenes = [{"especie": c.especie, "probabilidad_aparicion": c.probabilidad_aparicion} for c in cardumen]
 
 
     return jsonify({
@@ -33,8 +33,8 @@ def probabilidad_exito_zona():
         'y_max': zona.y_max,
         'profundidad': zona.profundidad,
         'temperatura': zona.temperatura,
-        'probabilidad_exito': probabilidad,
-        'cardumenes': cardumen_list
+        'probabilidad_exito': probabilidad_exito,
+        'probabilidad_cardumenes': probabilidad_cardumenes
     })
 
 if __name__ == '__main__':

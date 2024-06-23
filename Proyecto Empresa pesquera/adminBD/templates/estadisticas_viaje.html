@@ -20,10 +20,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{coordenadaX1}}</td>
-                    <td>{{coordenadaX2}}</td>
-                    <td>{{coordenadaY1}}</td>
-                    <td>{{coordenadaY2}}</td>
+                    <td>{{x_min}}</td>
+                    <td>{{x_max}}</td>
+                    <td>{{y_min}}</td>
+                    <td>{{y_max}}</td>
                     <td>{{temperatura}}</td>
                     <td>{{profundidad}}</td>
                 </tr>
@@ -47,7 +47,7 @@
                 {% for probabilidadCardumen in prob_cardumenes %}
                 <tr>
                     <td>{{probabilidadCardumen.especie}}</td>
-                    <td>{{probabilidadCardumen.probabilidad_aparicion}}</td>
+                    <td>{{probabilidadCardumen.probabilidad_aparicion}}%</td>
                 </tr>
                 {% endfor %}
             </tbody>
