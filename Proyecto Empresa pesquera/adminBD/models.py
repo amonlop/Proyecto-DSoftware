@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models import UniqueConstraint
-from datetime import datetime
 
 # Create your models here.
 class Cardumen(models.Model):
@@ -40,7 +38,7 @@ class Viaje(models.Model):
     def __str__(self) -> str:
          return "Viaje" + str(self.pk)
 
-class viajeCardumen(models.Model):
+class ViajeCardumen(models.Model):
     viaje = models.ForeignKey(Viaje, on_delete=models.CASCADE)
     cardumen = models.ForeignKey(Cardumen, on_delete=models.CASCADE)
 
