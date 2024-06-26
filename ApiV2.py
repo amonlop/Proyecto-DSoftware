@@ -37,5 +37,24 @@ def probabilidad_exito_zona():
         'probabilidad_cardumenes': probabilidad_cardumenes
     })
 
+@app.route('/obtener_viajes', methods=['GET'])
+def obtener_viajes():
+    viajes = Viaje.obtenerViajes()
+    viajes_lista = []
+    for viaje in viajes:
+        viaje_dict = {
+            'fecha_inicio': viaje.fecha_salida,
+            'fecha_fin': viaje.fecha_llegada,
+            'x_min': viaje.zona.x_min,
+            'x_max': viaje.zona.x_max,
+            'y_min': viaje.zona.y_min,
+            'y_max': viaje.zona.y_max,
+            'resultado': viaje.es_exitoso
+        }
+        viajes_lista.append(viaje_dict)
+    
+    return jsonify(viajes_lista)
+
+
 if __name__ == '__main__':
     app.run(debug=True)

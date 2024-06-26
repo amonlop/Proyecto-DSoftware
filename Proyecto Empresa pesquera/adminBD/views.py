@@ -1,27 +1,15 @@
-from .models import Cardumen, Zona
 from django.shortcuts import  render, redirect
-from .forms import crearCardumen, ingresarCoordenadas
+from .forms import ingresarCoordenadas
 import requests
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
-
-def database(request):
-    cardumenes = Cardumen.objects.all()
-    zonas = Zona.objects.all()
-    return render(request, 'datos.html', {
-        'cardumenes':cardumenes, 'zonas':zonas
+    apiData = requests.get('http://localhost:5000/obtener_viajes')
+    apiData = apiData.json()
+  
+    return render(request, 'index.html', {
+        'viajes' : apiData
     })
-
-def crear_cardumen(request):
-    if(request.method == 'GET'):
-        return render(request, 'crear_cardumen.html', {
-        'cardumenForm' : crearCardumen
-        })
-    else:
-        Cardumen.objects.create(nombre = request.POST['nombre'])
-        return redirect('base_de_datos')
     
 def obtener_viaje(request):
     if(request.method == 'GET'):

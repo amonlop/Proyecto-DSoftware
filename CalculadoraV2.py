@@ -75,10 +75,6 @@ class Viaje:
         self.fecha_llegada = fecha_llegada
         self.es_exitoso = es_exitoso
         self.cardumenes_pescados = cardumenes_pescados
-        
-
-    def duracion_viaje(self):
-        return self.fecha_llegada - self.fecha_salida
     
     @staticmethod
     def obtenerViajes():
@@ -133,7 +129,8 @@ class CalculadoraProbabilistica:
                     if probabilidad_aparicion > 100:
                         probabilidad_aparicion = 100
 
-                probabilidades.append(probabilidadCardumen(cardumen.especie, truncar(probabilidad_aparicion)))
+                if probabilidad_aparicion > 0:
+                    probabilidades.append(probabilidadCardumen(cardumen.especie, truncar(probabilidad_aparicion)))
 
         return probabilidades
 
@@ -163,43 +160,3 @@ class CalculadoraProbabilistica:
 
         probabilidad_total = truncar(probabilidad_total)
         return probabilidad_total
-    
-    def viajeRecomendado(self):
-        #inserte algoritmo
-        return
-
-    def posibles_cardumenes(self, zona):
-        posibles = [cardumen.especie for cardumen in self.cardumenes if cardumen.puede_habitar(zona)]
-        return posibles
-
-# Ejemplo de uso
-# cardumenes = Cardumen.cargar_cardumenes()
-# viajes_historicos = Viaje.cargar_viajes()
-
-# def main():
-#     zona_nueva = Zona(cord_x=20, cord_y=55, profundidad=60, temperatura=20)
-#     calculadora = CalculadoraProbabilistica(cardumenes, viajes_historicos)
-
-#     probabilidades_cardumen = calculadora.pCardumen(zona_nueva)
-#     probabilidad_exito = calculadora.pExito(zona_nueva)
-
-#     print("Probabilidades de cardúmenes en la zona nueva basado en datos históricos:")
-#     if all(probabilidad.probabilidad_aparicion == 0 for probabilidad in probabilidades_cardumen):
-#         print("No hay datos históricos para esta zona")
-#         posibles = calculadora.posibles_cardumenes(zona_nueva)
-#         if posibles:
-#             print("Pero cumple las condiciones donde habitan los siguientes cardúmenes:")
-#             for especie in posibles:
-#                 print(especie)
-#         else:
-#             print("No hay cardúmenes que habiten en esta zona")
-
-#     else:
-#         for probabilidad in probabilidades_cardumen:
-#             if probabilidad.probabilidad_aparicion > 0:
-#                 print(f"{probabilidad.especie}: {probabilidad.probabilidad_aparicion:.2f}%")
-
-#     print(f"Probabilidad de éxito de viajes anteriores con condiciones similares: {probabilidad_exito:.2f}%")
-
-# if __name__ == "__main__":
-#     main()
