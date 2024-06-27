@@ -125,7 +125,10 @@ class CalculadoraProbabilistica:
                 else:
                     probabilidad_aparicion = 0
                 if(probabilidad_aparicion > 0):
-                    probabilidad_aparicion *= ((conteo_cardumenes[cardumen.especie] / total_viajes) + 0.5)
+                    if(total_viajes > 0):
+                        probabilidad_aparicion *= ((conteo_cardumenes[cardumen.especie] / total_viajes) + 0.5)
+                    else:
+                        probabilidad_aparicion*=0.75
                     if probabilidad_aparicion > 100:
                         probabilidad_aparicion = 100
 
